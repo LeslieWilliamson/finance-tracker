@@ -114,6 +114,7 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hirb (0.7.3)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.1.0)
@@ -192,6 +193,7 @@ GEM
     parser (3.3.7.3)
       ast (~> 2.4.1)
       racc
+    pg (0.18.4)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -373,9 +375,11 @@ DEPENDENCIES
   brakeman
   capybara
   debug
+  hirb
   importmap-rails
   jbuilder
   kamal
+  pg (~> 0.18.4)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
