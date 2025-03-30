@@ -38,6 +38,11 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem "devise", "~> 4.9"
+gem "devise-i18n"
+gem "devise-bootstrap-views", "~> 1.0"
+
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
@@ -69,5 +74,3 @@ end
 group :production do
   gem "pg", "~> 0.18.4"
 end
-
-gem "devise", "~> 4.9"
