@@ -1,28 +1,69 @@
-<h1><%= t('.sign_in') %></h1>
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://cmkt-image-prd.freetls.fastly.net/0.1.0/ps/6702662/1820/1213/m1/fpnw/wm1/qixqismbdcnjsgsda7dy99ia5p26fzk48hwwahc2hvifh8d7gxhvjxuu4vflzppe-.jpg?1563461453&s=1bd4cd2cba4ac899e0eeb55d296984aa"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <h1 class="text-center mb-4"><%= t('.sign_in') %></h1>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <%= f.email_field :email, autofocus: true, autocomplete: 'email', 
+              placeholder: "Enter a valid email address", class: 'form-control form-control-lg' %>
+            <%= f.label :email, "Email address", class: "form-label" %>
+          </div>
+          
+          <!-- Password input -->
+          <div class="form-outline">
+            <%= f.password_field :password, autocomplete: 'current-password', 
+              placeholder: "Enter password", class: 'form-control form-control-lg' %>
+            <%= f.label :password, class: "form-label" %>
+          </div>
 
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
-  </div>
+          <% if devise_mapping.rememberable? %>
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+            <div class="form-group form-check">
+              <%= f.check_box :remember_me, class: 'form-check-input me-2' %>
+              <%= f.label :remember_me, class: 'form-check-label' do %>
+                <%= resource.class.human_attribute_name('remember_me') %>
+              <% end %>
+            </div>
+            <a href="/users/password/new" class="text-body">Forgot password?</a>
+          </div>
+          <% end %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="form-group form-check">
-      <%= f.check_box :remember_me, class: 'form-check-input' %>
-      <%= f.label :remember_me, class: 'form-check-label' do %>
-        <%= resource.class.human_attribute_name('remember_me') %>
-      <% end %>
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-lg', style: "padding-left: 2.5rem; padding-right: 2.5rem;" %>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+              <a href="/users/sign_up" class="link-danger">Register</a>
+            </p>
+
+          </div>
+
+        <% end %>
+
+        <%# <div class="mb-4 mt-4"> %>
+          <%#= render 'devise/shared/links' %>
+        <%# </div> %>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
   </div>
-<% end %>
+  <div
+    class="navbar fixed-bottom d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <!-- Copyright -->
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2020. All rights reserved.
+    </div>
+    <!-- Copyright -->
 
-<%= render 'devise/shared/links' %>
+  </div>
+
+</section>
+
+
+
