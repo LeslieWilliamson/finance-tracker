@@ -1,2 +1,10 @@
-<h1>Welcome to the Finance Tracker App!</h1>
+<h1 class="mt-5">Welcome to the Finance Tracker App!</h1>
+
+<div>
+  <p>The AlphaVantage free tier API is rate limited to 25 API calls per day. If nothing shows up below, you've reached your daily limit. </p>
+   <p><b>Company:</b> <%= Stock.lookup_company_name('AAPL') %> <b>price:</b> <%= Stock.lookup_price('AAPL')  %></p>
+   <p><b>Company:</b> <%= Stock.lookup_company_name('GOOG') %> <b>price:</b> <%= Stock.lookup_price('GOOG')  %></p>
+   <p><b>Company:</b> <%= Stock.lookup_company_name('MSFT') %> <b>price:</b> <%= Stock.lookup_price('MSFT')  %></p>
+</div>
+
 <%= link_to 'Sign out', destroy_user_session_path, data:{turbo_method: :delete} %>
