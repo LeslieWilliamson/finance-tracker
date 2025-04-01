@@ -42,6 +42,8 @@ gem "devise", "~> 4.9"
 gem "devise-i18n"
 gem "devise-bootstrap-views", "~> 1.0"
 
+ gem "alphavantage"
+ gem "httparty"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
