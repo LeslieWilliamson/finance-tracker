@@ -1,11 +1,8 @@
 class Stock < ApplicationRecord
-  def self.lookup_price(ticker_symbol)
-    quote = Alphavantage::TimeSeries.new(symbol: ticker_symbol).quote
-    quote.price if quote
-  end
-
-  def self.lookup_company_name(ticker_symbol)
+  def self.lookup(ticker_symbol)
+    # debugger
+    stock = Alphavantage::TimeSeries.new(symbol: ticker_symbol)
     company = Alphavantage::Fundamental.new(symbol: ticker_symbol)
-    company.overview.name if company
+    new(ticker: ticker_symbol, name: company.overview.name, last_price: stock.quote.price)
   end
 end
